@@ -15,4 +15,16 @@ class CalculationsController < ApplicationController
         render("calculations/flexible_root_template.html.erb")
     end
     
+    def flex_payment
+        
+        @user_interest_rate= ((params["a_interest_rate"].to_f)/100)
+        @number_of_years= params["a_number_of_years"].to_i
+        @loan_amount= params["a_loan_of"].to_f
+       
+        
+        @payment= (@user_interest_rate*@loan_amount)/(1-(1+@user_interest_rate)**((-1*@number_of_years)*12))
+        
+        render("calculations/flexible_payment.html.erb")
+    end
+    
 end
