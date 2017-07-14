@@ -27,4 +27,15 @@ class CalculationsController < ApplicationController
         render("calculations/flexible_payment.html.erb")
     end
     
+    def flex_random
+        
+        @user_min= params["a_low_number"]
+        @user_max= params["a_high_number"]
+        
+        
+        @random_number= rand(100)
+      
+      render("calculations/flexible_random_number.html.erb")
+    end
+
 end
