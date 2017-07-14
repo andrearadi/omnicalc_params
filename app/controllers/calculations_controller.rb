@@ -22,7 +22,7 @@ class CalculationsController < ApplicationController
         @loan_amount= params["a_loan_of"].to_f
        
         
-        @payment= (@user_interest_rate*@loan_amount)/(1-(1+@user_interest_rate)**((-1*@number_of_years)*12))
+        @payment= ((@user_interest_rate*@loan_amount)/(1-(1+@user_interest_rate)**((-1*@number_of_years)*12))/1000)
         
         render("calculations/flexible_payment.html.erb")
     end
