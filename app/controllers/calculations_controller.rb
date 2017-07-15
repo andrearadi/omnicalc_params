@@ -29,11 +29,18 @@ class CalculationsController < ApplicationController
     
     def flex_random
         
-        @user_min= params["a_low_number"]
-        @user_max= params["a_high_number"]
+        @user_min= params["a_low_number"].to_i
+        @user_max= params["a_high_number"].to_i
         
         
-        @random_number= rand(100)
+        if (@user_max > @user_min)
+        puts @random_number= @user_min + rand((@user_max-@user_min))
+        
+        elsif (@user_min > @user_max)
+        puts @random_number= @user_max + rand((@user_min-@user_max))
+            
+        end
+        
       
       render("calculations/flexible_random_number.html.erb")
     end
