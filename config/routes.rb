@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get("/payment/new", { :controller => "calculations", :action => "payment_new" })
   get("/payment/results", { :controller => "calculations", :action => "process_payment" })
 
-  get("/random/new", { :controller => "calculations", :action => "random_form" })
+  get("/random/new", { :controller => "calculations", :action => "random_new" })
   get("/random/results", { :controller => "calculations", :action => "process_random" })
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

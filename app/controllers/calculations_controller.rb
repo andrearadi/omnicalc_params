@@ -96,10 +96,10 @@ class CalculationsController < ApplicationController
   
     def process_payment
 
-        @user_interest_rate= params["the_user_number"].to_i
+        @user_interest_rate= params["the_user_number3"].to_i
         @interest= (@user_interest_rate/100)
-        @number_of_years= params["a_number_of_years"].to_i
-        @loan_amount= params["a_loan_of"].to_f
+        @number_of_years= params["the_user_number1"].to_i
+        @loan_amount= params["the_user_number2"].to_f
        
         @payment= (@interest*@loan_amount)/((1-(1+@interest)**((-1)*@number_of_years)*12))
         
@@ -123,8 +123,8 @@ class CalculationsController < ApplicationController
     end
   
     def process_random
-    @user_min= params["a_low_number"].to_i
-    @user_max= params["a_high_number"].to_i
+    @user_min= params["the_user_number1"].to_i
+    @user_max= params["the_user_number2"].to_i
         
     if (@user_max > @user_min)
     puts @random_number= @user_min + rand((@user_max-@user_min))
